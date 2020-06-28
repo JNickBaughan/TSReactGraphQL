@@ -1,23 +1,12 @@
-var path = require("path");
+const path = require("path");
+const common = require("./webpack.common.js");
+const merge = require("webpack-merge");
 
-module.exports = {
-    mode: "development",
+module.exports = merge(common, {
     entry: "./src/server",
     target: "node",
     output: {
         path: path.resolve(__dirname, "dist"),
         filename: "bundle.server.js"
-    },
-    resolve: {
-        extensions: [ ".ts", ".tsx", ".js", ".json" ]
-    },
-    module: {
-        rules: [
-            {
-                test: /\.(ts|js)x?$/,
-                exclude: /node_modules/,
-                loader: "babel-loader"
-            }
-        ]
     }
-}
+})

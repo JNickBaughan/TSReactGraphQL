@@ -1,23 +1,11 @@
-var path = require("path");
-const { isBundle } = require("typescript");
+const path = require("path");
+const common = require("./webpack.common.js")
+const merge = require("webpack-merge");
 
-module.exports = {
-    mode: "development",
+module.exports = merge(common, {
     entry: "./src/index",
     output: {
         path: path.resolve(__dirname, "dist"),
         filename: "bundle.js"
-    },
-    resolve: {
-        extensions: [ ".ts", ".tsx", ".js", ".json" ]
-    },
-    module: {
-        rules: [
-            {
-                test: /\.(ts|js)x?$/,
-                exclude: /node_modules/,
-                loader: "babel-loader"
-            }
-        ]
     }
-}
+})
