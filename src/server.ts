@@ -1,6 +1,6 @@
 import express, { Request, Response } from 'express';
 import bodyParser from "body-parser";
-let PORT = 3000;
+let PORT = 4000;
 let server: express.Application = express();
 
 const middlewares = [
@@ -16,7 +16,7 @@ server.get("/", (req: Request, res: Response) => {
     <!DOCTYPE html>
     <html>
       <body>
-        <div id="root" />
+        <div id="root" >test</div>
         <script src="bundle.js"></script>
       </body>
     </html>
